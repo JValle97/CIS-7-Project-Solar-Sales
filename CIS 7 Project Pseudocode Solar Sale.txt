@@ -1,0 +1,79 @@
+		CIS 7 Project Pseudocode: "Solar Sales"
+//Travel.h:
+Define a Graph structure with:
+    - an integer variable V to store the number of vertices
+    - a 2D vector adjMatrix to store the adjacency matrix
+    - a constructor to initialize V and adjMatrix
+    - a function addEdge to add an edge between two vertices with a given weight
+
+Define a Travel class with:
+    - private member variables for menu selection, starting city, ending city, stopover city
+    - private member variables for city names and distances between cities
+    - public member functions for displaying the main menu, finding the lowest cost path, finding the shortest path, displaying adjacent cities and displaying the road matrix
+    - public member functions for setting and getting the values of the private member variables
+
+
+//main.cpp:
+In the main function:
+    - initialize variables for menu selection, starting city, ending city, stopover city and continue option
+    - create a Travel object
+    - DO
+        - display the main menu
+        - get the menu selection from the user
+        - set the menu selection in the Travel object
+        - IF the menu selection is 'A' or 'C'
+            - prompt the user for the starting city
+            - set the starting city in the Travel object
+        - END IF
+        - IF the menu selection is 'A'
+            - prompt the user for the ending city
+            - set the ending city in the Travel object
+            - prompt the user if they will be making a stopover
+            - IF the user chooses to make a stopover
+                - prompt the user for the stopover city
+                - set the stopover city in the Travel object
+            - END IF
+        - END IF
+        - call the mainMenu function of the Travel object
+        - prompt the user if they would like to plan another trip
+    - WHILE the user wants to plan another trip
+    - display a goodbye message
+
+
+//Travel.cpp:
+Define a function mainMenu for the Travel class that:
+    - takes a Travel object as an argument
+    - calls the appropriate function based on the menu selection of the Travel object
+
+Define a function shortestpath for the Travel class that:
+    - creates a Graph object with 4 vertices
+    - adds edges to the Graph object using the distance array
+    - loops through each city
+        - displays the city name
+        - uses Dijkstra's algorithm to find the shortest path from the current city to all other cities
+        - finds and displays
+        - the next closest city until all cities have been visited
+        - displays the starting city again to complete the round trip
+
+Define a function adjacency for the Travel class that:
+    - displays the starting city
+    - loops through all cities and displays their distance from the starting city
+
+Define a function matrix for the Travel class that:
+    - loops through all cities
+        - displays the city name
+        - loops through all cities again and displays their distance from the current city
+
+Define a function lowestcost for the Travel class that:
+    - calculates the distance from the starting city to the ending city
+    - calculates the distance from the starting city to the stopover city
+    - determines if it's faster to go directly to the ending city or to the stopover city first
+    - calculates the total distance of the lowest cost path
+    - displays the lowest cost path
+
+Define functions setSelection, setStart, setStop and setEnd for the Travel class that:
+    - take a character or integer argument respectively
+    - set the value of the corresponding private member variable
+
+Define functions getSelection, getStart, getEnd and getStop for the Travel class that:
+    - return the value of the corresponding private member variable
